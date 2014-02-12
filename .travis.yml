@@ -26,7 +26,7 @@ env:
     # - HIBERNATE_VERSION=4.0.1.FINAL SPRING_PROFILES_ACTIVE=hibernate4
     # - HIBERNATE_VERSION=4.1.12.FINAL SPRING_PROFILES_ACTIVE=hibernate4
     # - HIBERNATE_VERSION=4.2.8.FINAL SPRING_PROFILES_ACTIVE=hibernate4
-    # - HIBERNATE_VERSION=4.3.1.FINAL SPRING_PROFILES_ACTIVE=hibernate4
+    # - HIBERNATE_VERSION=4.3.1.FINAL SPRING_PROFILES_ACTIVE=hibernate4 SPRING_VERSION=4.0.1.RELEASE # minimum supported Spring
     # - JEDIS_VERSION=2.1.0
     # - JEDIS_VERSION=2.2.1
     # - POSTGRESQL_VERSION=9.2-1004-jdbc4
@@ -50,4 +50,7 @@ matrix:
     - jdk: oraclejdk8
       env: SONAR_BUILD=true
 notifications:
-  webhooks: http://build-monitor.cfapps.io/projects/JBAR/webhook
+  webhooks:
+    urls:
+      - http://build-monitor.cfapps.io/projects/JBAR/webhook
+    on_start: true
